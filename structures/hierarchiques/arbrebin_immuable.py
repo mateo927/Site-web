@@ -92,6 +92,9 @@ def genere_alea(h: int) -> arbrebin:
         arbre_gauche=genere_alea(h-1)
         arbre_droite=genere_alea(h-1)
         return creer(rd.randint(1,100),arbre_gauche,arbre_droite)
+def sont_miroirs[T](a1: arbrebin[T], a2: arbrebin[T]) -> bool:
+    assert est_vide(a1) and  est_vide(a2)
+    
 
 if __name__ == "__main__":
 

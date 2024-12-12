@@ -49,7 +49,10 @@ class ArbreBin:
             return  False
         return True if self.sont_egaux(self.gauche,a1.gauche) and self.sont_egaux(self.droit,a1.droit) else False
 
+    def sont_miroirs[T](a1: arbrebin[T], a2: arbrebin[T]) -> bool:
+    assert est_vide(a1) and  est_vide(a2)
     
+
 class Sentinelle(ArbreBin):
     def __init__(self):
         super().__init__(0, self, self)
