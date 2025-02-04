@@ -50,3 +50,4 @@ def update_eleve(eid: int):
 def delete_eleve(eid: int):
     svc.delete_eleve(eid)
     return redirect(url_for('eleves_bp.liste_eleves'))
+

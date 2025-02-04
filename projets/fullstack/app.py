@@ -8,4 +8,8 @@ app = flask.Flask(__name__)
 #! ce sont eux qui vont interpréter ce que l'utilisateur a demandé, et qui vont renvoyer une réponse en conséquence.
 app.register_blueprint(eleves_bp, url_prefix='/eleves')
 
+@app.route('/', methods=['GET'])
+def accueil():
+    # Traitement du template et transmission du HTML généré au client
+    return flask.render_template('accueil.jinja')  
 
