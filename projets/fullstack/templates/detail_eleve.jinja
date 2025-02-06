@@ -10,6 +10,7 @@
     <p><strong>Nom :</strong> {{ eleve.nom }}</p>
     <p><strong>Prénom :</strong> {{ eleve.prenom }}</p>
     <p><strong>Age :</strong> {{ eleve.age }}</p>
+    <p><strong>Age :</strong> {{ eleve.classe }}</p>
 
     <a href="{{ url_for('eleves_bp.update_eleve', eid=eleve.id) }}">Modifier l'élève</a>
 

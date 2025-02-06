@@ -17,6 +17,10 @@
               <label for="age">Age : </label>
               <input type="text" name="age" id="age"
                      value="{{ eleve.age if eleve else '' }}"><br>
+              
+              <label for="Classes">Classes : </label>
+              <input type="text" name="Classes" id="Classes"
+                     value="{{ eleve.Classes if eleve else '' }}"><br>
 
 
               <input type="hidden" name="id" value="{{ eleve.id if eleve else '' }}">

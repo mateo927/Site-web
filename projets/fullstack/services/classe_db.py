@@ -2,7 +2,7 @@ import database
 
 from modele import Classe
 
-def get_all_classe() -> list[Classe]:
+def get_all_Classes() -> list[Classe]:
     """Retourne la liste de tous les élèves"""    
     with database.get_connection() as conn:
         with conn.cursor() as cur:

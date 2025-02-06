@@ -9,9 +9,9 @@
 
 {% block main %}
 
-        <h1>Liste des élèves</h1>
+        <h1>Liste des classe</h1>
 
-        <a href = "{{ url_for('classe_bp.create_eleve') }}">Ajouter un nouvel élève</a>
+        <a href = "{{ url_for('classe_bp.create_classe') }}">Ajouter un nouvel élève</a>
 
         
         <div
@@ -30,7 +30,7 @@
                 <tbody>
                     {# Ci dessous, on boucle sur la liste d'élèves qui a été transmise par le contrôleur.
                     Un navigateur ne sait pas interpréter ce code. #}
-                    {% for eleve in eleves %}
+                    {% for classe in classe %}
                         <tr class="">
                             <td scope="row"> 
                                 <a href="{{ url_for('classe_bp.read_classe', id=classe.id) }}">{{ classe.id }}</a>

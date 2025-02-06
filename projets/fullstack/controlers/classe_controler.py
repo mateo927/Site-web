@@ -12,7 +12,7 @@ classe_bp = Blueprint('classe_bp', __name__)
 @classe_bp.route('/', methods=['GET'])
 def liste_classe():
     # Traitement du template et transmission du HTML généré au client
-    return render_template('liste_classe.jinja', classe=svc.get_all_classe())
+    return render_template('liste_classe.jinja', classe=svc.get_all_Classes())
 
 
 @classe_bp.route('/create', methods=['GET', 'POST'])
@@ -20,7 +20,7 @@ def create_classe():
     if request.method == 'POST':
         # On utilise un POST pour créer un nouvel élève
         print("CREATION")
-        id_classe = svc.create_classe(request.form['nom'], request.form['prenom'], request.form['age'])
+        id_classe = svc.create_classe(request.form['nom'], request.form['eleves'])
         return redirect(url_for('classe_bp.read_classe', id=id_classe))
     else:
         # On utilise un GET pour afficher le formulaire

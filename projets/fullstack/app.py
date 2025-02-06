@@ -1,5 +1,6 @@
 import flask
 
+from controlers.classe_controler import classe_bp
 from controlers.eleves_controler import eleves_bp
 
 app = flask.Flask(__name__)
@@ -7,6 +8,7 @@ app = flask.Flask(__name__)
 #! Ici on déclare les controlers
 #! ce sont eux qui vont interpréter ce que l'utilisateur a demandé, et qui vont renvoyer une réponse en conséquence.
 app.register_blueprint(eleves_bp, url_prefix='/eleves')
+app.register_blueprint(classe_bp, url_prefix='/classe')
 
 @app.route('/', methods=['GET'])
 def accueil():

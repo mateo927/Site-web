@@ -4,7 +4,7 @@
 {# Ce template sert à la fois à créer et à modifier un élève #}
 
 {% block main %}
-       <h1>{{ 'Modifier' if classe else 'Créer' }} un élève</h1>
+       <h1>{{ 'Modifier' if classe else 'Créer' }} une classe</h1>
        <form method="POST" action="">
               <label for="nom">Nom : </label>
               <input type="text" name="nom" id="nom"

@@ -1,10 +1,10 @@
 from modele import Eleve
 from modele import Classe
 
-Classes = [Classe(1,(
-        Eleve(1, 'Dupont', 'Jean'),
-        Eleve(2, 'Durand', 'Pierre'),
-        Eleve(3, 'Dufour', 'Paul'),))
+Classes = [Classe(1,'T09',(
+        Eleve(1, 'Dupont', 'Jean',15,'T09'),
+        Eleve(2, 'Durand', 'Pierre',15,'T09'),
+        Eleve(3, 'Dufour', 'Paul',15,'T09'),))
         
     ]
 
