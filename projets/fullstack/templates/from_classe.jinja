@@ -7,15 +7,16 @@
        <h1>{{ 'Modifier' if classe else 'Créer' }} une classe</h1>
        <form method="POST" action="">
               <label for="nom">Nom : </label>
-              <input type="text" name="nom" id="nom"
+              <input type="text" name="nom" id="nom" 
                      value="{{ classe.nom if classe else '' }}"><br>
 
-              <label for="eleves">eleves : </label>
-              <input type="liste" name="eleves" id="eleves"
+              <label for="eleves">Élèves : </label>
+              <input type="text" name="eleves" id="eleves" 
                      value="{{ classe.eleves if classe else '' }}"><br>
 
-              <input type="hidden" name="id" value="{{ classe.id if eleve else '' }}">
+              <input type="hidden" name="id" value="{{ classe.id if classe else '' }}">
 
               <button type="submit">Valider</button>
        </form>
 {% endblock %}
+

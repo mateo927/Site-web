@@ -15,7 +15,7 @@ def get_eleve(id: int) -> Eleve:
 def update_eleve(id: int, nom: str, prenom: str,age: int,classe:str) -> None:
     e = get_eleve(id)
     e.nom = nom
-    e.eleves = prenom
+    e.prenom = prenom
     e.age = age
     e.classe= classe
 
