@@ -8,7 +8,12 @@
 {% block main %}
     <h1>Détails de la classe</h1>
     <p><strong>Nom :</strong> {{ classe.nom }}</p>
-    <p><strong>Les élèves :</strong> {{ classe.eleves }}</p>
+    <p><strong>Élèves :</strong></p>
+    <ul>
+    {% for eleve in eleve %}
+        <li>{{ eleve.prenom }}</li>
+    {% endfor %}
+    </ul>
 
     <a href="{{ url_for('classe_bp.update_classe', eid=classe.id) }}">Modifier la classe</a>
     <a href="{{ url_for('classe_bp.delete_classe', eid=classe.id) }}">Supprimer la classe</a>

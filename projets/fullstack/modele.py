@@ -12,4 +12,3 @@ class Eleve:
 class Classe:
     id: int
     nom: str
-    eleves: list[Eleve] 

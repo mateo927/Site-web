@@ -19,9 +19,8 @@ values
 create table Classe(
     id SERIAL primary key,
     nom text not null,
-    eleves text
 );
 
-insert into Classe(id, nom, eleves) 
+insert into Classe(id, nom,) 
 values
-(1, 'T09', '1,3,4');
+(1, 'T09');

@@ -36,7 +36,13 @@
                                 <a href="{{ url_for('classe_bp.read_classe', id=classe.id) }}">{{ classe.id }}</a>
                             </td>
                             <td>{{ classe.nom }}</td>
-                            <td>{{ classe.eleves }}</td>
+                        </tr>
+                    {% endfor %}
+                    {% for eleve in eleves %}
+                        <tr class="">
+                            <td scope="row"> 
+                                <a href="{{ url_for('eleves_bp.read_eleve', id=eleve.id) }}">{{ eleve.id }}</a>
+                            <td>{{ eleve.prenom }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>

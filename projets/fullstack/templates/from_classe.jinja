@@ -9,11 +9,14 @@
               <input type="text" name="nom" id="nom" 
                      value="{{ classe.nom if classe else '' }}"><br>
 
-              <label for="eleves">Élèves : </label>
-              <input type="text" name="eleves" id="eleves" 
-                     value="{{ classe.eleves if classe else '' }}"><br>
 
               <input type="hidden" name="id" value="{{ classe.id if classe else '' }}">
+              
+              <label for="eleve">eleve : </label>
+              <input type="text" name="eleve" id="eleve"
+                     value="{{ eleve.Classes if eleve else '' }}"><br>
+                     
+              <input type="hidden" name="id" value="{{ eleve.id if eleve else '' }}">
 
               <button type="submit">Valider</button>
        </form>
