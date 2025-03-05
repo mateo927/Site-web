@@ -1,9 +1,9 @@
 type num = int|float
 
-type matrice_adjacence = list[list[num]]
+type matrice_adjacence = list[list[int|float]]
 
 # Ici, on assimile directement le graphe à ses listes d'adjacence
-type graphe = dict[str, dict[str, num]]
+type graphe = dict[str, dict[str, int|float]]
 
 def creer() -> graphe:
     """Retourne un graphe vide (aucun sommet, aucune arête)"""
@@ -12,13 +12,10 @@ def creer() -> graphe:
 def sommets(g: graphe) -> list[str]:
     """Retourne la liste des sommets du graphe g.
     """
-    lst=[]
-    for i in g:
-        lst.append(i)
-    return lst
+    return list(g.keys())
 
 def poids(s1: str, s2: str, g: graphe) -> num:
-    pass
+    return g[s1][s2]
 
 
 def get_matrice_adjacence(g: graphe) -> matrice_adjacence:
@@ -29,13 +26,13 @@ def get_matrice_adjacence(g: graphe) -> matrice_adjacence:
     >>> get_matrice_adjacence(g)
     [[0, 1, 0], [2, 0, 1], [0, 3, 0]]
     """
-    pass
+    return [[g[s1].get(s2, 0) for s2 in sommets(g)] for s1 in sommets(g)]
 
 
-def nb_sommets(g: graphe) -> int:
+def nb_sommets(g: graphe):
     """Nombre de sommets du graphe g
     """
-    pass
+    return len(g)
 
 def ajouter_sommet(s: str, g: graphe):
     """
@@ -52,11 +49,12 @@ def ajouter_sommet(s: str, g: graphe):
     >>> sommets(g)
     ['A', 'B']
     """
-    pass
-
+    if s not in g:
+        g[s]={}
+    
 def set_arc(s1:str, s2: str, g: graphe, poids: int|float = 1):
     """
-    Ajoute un arc pondéré entre les sommets s1 et s2 du graphe g.
+    Ajoute une arête orientée pondérée entre les sommets s1 et s2 du graphe g.
     Si les sommets n'existent pas, ils sont ajoutés au graphe.
     Met à jour la matrice d'adjacence pour refléter les changements.
 
@@ -74,7 +72,10 @@ def set_arc(s1:str, s2: str, g: graphe, poids: int|float = 1):
     >>> get_matrice_adjacence(g)
     [[0, 3, 4, 0], [2, 0, 0, 0], [0, 0, 0, 5], [0, 0, 0, 0]]
     """
-    pass
+
+    ajouter_sommet(s1, g)
+    ajouter_sommet(s2, g)
+    g[s1][s2]=poids
 
 
 def get_successeurs(s: str, g: graphe) -> list[str]:
@@ -89,7 +90,7 @@ def get_successeurs(s: str, g: graphe) -> list[str]:
     >>> get_successeurs("C", g)
     ['B']
     """
-    pass
+    return list(g[s].keys())
 
 
 def get_predecesseurs(s: str, g: graphe) -> list[str]:
@@ -106,14 +107,13 @@ def get_predecesseurs(s: str, g: graphe) -> list[str]:
     >>> get_predecesseurs("D", g)
     []
     """
-    pass
+    return [entrant for entrant in g if s in g[entrant]]
 
 
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
 
-    """
     from . import dessin
 
     g = creer()
@@ -127,4 +127,3 @@ if __name__ == "__main__":
     set_arc("E", "C", g, 9)
     set_arc("E", "E", g, 9)
     dessin.genere_image(g, True)
-    """
