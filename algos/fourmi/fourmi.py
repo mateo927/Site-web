@@ -1,7 +1,6 @@
 #uv run -m algos.fourmi.fourmi
 from random import randint 
 import random
-from re import S
 type matrice[T] = list[list[T]]
 type chemin = list[int]
 
@@ -43,19 +42,24 @@ def get_graphe_exemple() -> matrice[float]:
     ]
 
 def prochain_sommet(pheromones: matrice[float], visibilite: matrice[float],sommet_courant: int,inexplore: list[int],alpha: float, beta: float) -> int:
-    """Renvoit le prochain sommet au hasard en fonction de l attractivité des chemins.    Notre fourmi est quand même plus intelligente qu'une fourmi classique, elle ne va pas aux    endroits déjà visités.        
+    """Renvoit le prochain sommet au hasard en fonction de l attractivité des chemins.Notre fourmi est quand même plus intelligente qu'une fourmi classique, elle ne va pas aux endroits déjà visités.        
     >>> random.seed(54)    
     >>> g = get_graphe_exemple()    
-    >>> n = len(g)    "
-    >>> prochain_sommet(init_pheromones(n), calculer_visibilite(g), 0, list(range(n)), 1, 2)    1 """
+    >>> n = len(g) 
+    >>> prochain_sommet(init_pheromones(n), calculer_visibilite(g), 0, list(range(n)), 1, 2)    
+    1 
+    """
     proba=[]
     somme=0
     for i in inexplore:
         tmp=pheromones[sommet_courant][i]**alpha*visibilite[sommet_courant][i]**beta
         somme+=tmp
         proba.append(tmp)
-    proba=[i/somme for i in proba]
-    return random.choices(inexplore,weights=proba)
+    probatotal=[i/somme for i in proba]
+    return random.choices(inexplore,weights=probatotal)[0]
+
+
+
 
 def parcours_fourmi( graphe: matrice[float],pheromones: matrice[float],visibilite: matrice[float],alpha: float, beta: float) -> tuple[chemin, float]:
     """    Simule le parcours d'une seule fourmi choisissant au hasard un sommet de départ inexploré.    
@@ -63,26 +67,50 @@ def parcours_fourmi( graphe: matrice[float],pheromones: matrice[float],visibilit
     >>> random.seed(54)    
     >>> g = get_graphe_exemple()    
     >>> n = len(g)    
-    >>> parcours_fourmi(g, init_pheromones(n), calculer_visibilite(g), 1, 2)    ([1, 0, 2, 3, 1], 23)    """
-    tt=0
-    lst=[]
+    >>> parcours_fourmi(g, init_pheromones(n), calculer_visibilite(g), 1, 2)   
+    ([1, 0, 2, 3, 1], 23)    
+    """
+    distance=0
+    parcours=[]
     inexplore=[i for i in range(len(graphe))]
     sommet_courant=randint(0,len(graphe)-1)
-    lst.append(sommet_courant)
+    parcours.append(sommet_courant)
     inexplore.remove(sommet_courant)
     sommet_suivant=prochain_sommet(pheromones,visibilite,sommet_courant,inexplore,alpha,beta)
+    
     while sommet_suivant!=[]:
-        sommet_courant=sommet_suivant[0]
-        lst.append(sommet_courant)
+        sommet_courant=sommet_suivant
+        parcours.append(sommet_courant)
         inexplore.remove(sommet_courant)
         sommet_suivant=prochain_sommet(pheromones,visibilite,sommet_courant,inexplore,alpha,beta)
-        tt+=graphe[lst[-2]][lst[-1]]
-    return lst,tt
+        distance+=graphe[parcours[-2]][parcours[-1]]
+        
+    return parcours,distance
+
+
+
+
+
+def simuler_colonie(graphe: matrice[float],pheromones: matrice[float],visibilite: matrice[float],nb_fourmis: int,alpha: float, beta: float)-> tuple[list[chemin], list[float]]:
+    """Simule le parcours de nb_fourmis fourmis d'une colonie lancées l'une après l'autre dans le graphe.
+    Renvoie la liste des cyles obtenus, ainsi que la liste des distances correspondantes 
+    >>> random.seed(54)     
+    >>> g = get_graphe_exemple()    
+    >>> n = len(g)    
+    >>> simuler_colonie(g, init_pheromones(n), calculer_visibilite(g), 5, 1, 2)    
+    ([[1, 0, 2, 3, 1], [3, 1, 0, 2, 3], [3, 2, 1, 0, 3], [1, 0, 3, 2, 1], [0, 1, 3, 2, 0]], [23, 23, 26, 26, 23])"""
+    list_cycles=[]
+    liste_distance=[]
+    for i in range (nb_fourmis) :
+        tmp=parcours_fourmi(graphe, pheromones, visibilite, alpha, beta)
+        list_cycles.append(tmp[0])
+        liste_distance.append(tmp[1])
+    
+    return list_cycles,liste_distance
+        
+    
+    
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
-
-    from structures.graphe import dessin
- 
-    dessin.genere_image(g)
     
