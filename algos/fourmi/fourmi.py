@@ -56,7 +56,8 @@ def prochain_sommet(pheromones: matrice[float], visibilite: matrice[float],somme
         somme+=tmp
         proba.append(tmp)
     probatotal=[i/somme for i in proba]
-    return random.choices(inexplore,weights=probatotal)[0]
+
+    return random.choices(inexplore,weights=probatotal)
 
 
 
@@ -77,13 +78,14 @@ def parcours_fourmi( graphe: matrice[float],pheromones: matrice[float],visibilit
     parcours.append(sommet_courant)
     inexplore.remove(sommet_courant)
     sommet_suivant=prochain_sommet(pheromones,visibilite,sommet_courant,inexplore,alpha,beta)
-    
+
     while sommet_suivant!=[]:
-        sommet_courant=sommet_suivant
-        parcours.append(sommet_courant)
-        inexplore.remove(sommet_courant)
-        sommet_suivant=prochain_sommet(pheromones,visibilite,sommet_courant,inexplore,alpha,beta)
-        distance+=graphe[parcours[-2]][parcours[-1]]
+        sommet_suivant=sommet_suivant[0]
+        if sommet_suivant in inexplore:
+            inexplore.remove(sommet_suivant)
+        distance += graphe[sommet_courant][sommet_suivant]
+        parcours.append(sommet_suivant)
+        sommet_suivant = prochain_sommet(pheromones, visibilite, sommet_courant, inexplore, alpha, beta)
         
     return parcours,distance
 
@@ -109,7 +111,27 @@ def simuler_colonie(graphe: matrice[float],pheromones: matrice[float],visibilite
     return list_cycles,liste_distance
         
     
-    
+def update_pheromones(pheromones: matrice[float],chemins: list[chemin],longueurs_chemins: list[float],rho: float, Q: float):
+    """Met à jour les phéromones sur les arêtes. Dans un premier temps, toutes les phéromones 
+    diminuent du facteur rho. Dans un deuxième temps, pour chaque chemin de longueur d, toutes   
+    les arête augmentent en phéromone de Q/d.        
+    >>> g = get_graphe_exemple()    
+    >>> chemins = [[1,0,2,3,1], [3,1,0,2,3], [3,2,1,0,3], [1,0,3,2,1], [0,1,3,2,0]]    
+    >>> distances = [23, 23, 26, 26, 23]    
+    >>> p = init_pheromones(len(g))    
+    >>> update_pheromones(p, chemins,  distances, 0.5, 100)    
+    >>> [round(val) for ligne in p for val in ligne]    [0, 21, 14, 8, 21, 0, 8, 14, 14, 8, 0, 21, 8, 14, 21, 0]    """
+    for i in range(len(pheromones)):
+        for j in range(len(pheromones)):
+            pheromones[i][j]=pheromones[i][j]*rho
+
+    for i in range (len(chemins)):
+        for j in range (len(chemins[i])-1):
+            pheromones[chemins[i][j]][chemins[i][j+1]]+=Q/longueurs_chemins[i]
+            pheromones[chemins[i][j+1]][chemins[i][j]]+=Q/longueurs_chemins[i]
+              
+ 
+
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
