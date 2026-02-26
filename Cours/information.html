@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-with,initialscal=1.0">
+    <title>PEI</title>
+<link rel="shortcut icon" href="ensibs_favicon.png">
+<link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <a href="page1.html"><img src="ensibs_logo.png" width="250" height="180" alt="logo"></a>
+    <div class="container_informations">
+    <h2> Plus 'informations</h2> 
+
+    <iframe src="https://www-ensibs.univ-ubs.fr/fr/index.html" height="300px" width="80%" id="Iframe_ENSIBS"></iframe>
+    <h3>Decouvrir plus 'information sur notre site: </h3>
+    <a href="https://www-ensibs.univ-ubs.fr/fr/formations/apres-le-bac/parcours-ecole-d-ingenieurs-apres-un-bac-general.html" id="Ifreme_ENSIBS_a">ensibs.fr</a>
+    <h2>Nous contacter</h2>
+    <h3 id="nous_contacter_JS">Retrouver nous sur notre site de lorient.</h3>
+     <script>
+     function myFonction(){
+        document.getElementById("nous_contacter_JS").style.fontSize="35px";
+        document.getElementById("nous_contacter_JS").style.color="black";
+        document.getElementById("nous_contacter_JS").style.backgroundColor="green";
+        document.getElementById("nous_contacter_JS").innerHTML="ADRESSE: 17 BD flandres Dunkerque 1940,56100 Lorient";
+     }
+     </script>
+     <button type="button" onclick="myFonction()" id="button-Retrouver-nous">Retrouver nous!</button>
+    <h2>Dernière consultation</h2>
+    <button type="button" id="button-consultation"
+    onclick="document.getElementById('consultation').innerHTML = 
+    new Date().toLocaleString('fr-FR',{weekday: 'long',year: 'numeric',month:'long',
+    day:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit'})">Cliquer ici.</button>
+    <p id="consultation"></p>
+    <h2>Les stages</h2>
+    <p>Les elevves du cycle preparatoire de l'ENSIBS peuve,t realiser des stages volontaires au cours de leur formation.</p>
+    <ol>
+       <li>Objectifs des stages
+        <ul>
+            <li>Découverte du monde pro</li>
+            <li>Acquisition d'une première experience en entreprise</li>
+        </ul>
+       </li>
+       <li>Modalité de realisation</li>
+       <ul>
+        <li>Stage effectués en frnce</li>
+        <li>Stages effectués a l'étranger</li>
+       </ul>
+    </ol>
+    <h2 id="myfooter"> Chiffres Clés: <br> 2 campus à Vannes et Lorient. <br>800 élèves à l'école d'ingenieurs</h2>
+    <h2>Actualités</h2>
+    <h1 id="myfooterJS">voulez-vous savoir nos actualités ?</h1>
+    <button id="button-myfooter" onclick="AffichageTexte()">Decouvrir nos actualités</button>
+    <script>
+        function AffichageTexte(){
+            document.getElementById("myfooterJS").innerHTML="L'ensibs devient la 5 eme ecole associée au Réseau Polytech!"
+        }
+
+
+    </script>
+</div>
+</body>
+</html>
