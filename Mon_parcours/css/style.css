@@ -11,18 +11,20 @@ h1{
     margin: auto auto;
     text-align: center;
     color: black;
-    font-size: 45px;
+    font-size: 50px;
     background-color: lightblue;
     font-family:'Times New Roman';
 }
 h2{
-    margin: auto auto;
+    margin: auto 0px;
     text-align: center;
     color: black;
-    font-size: 30px;
+    font-size: 34px;
     background-color: lightblue;
     font-family:'Times New Roman';
+
 }
+
 
 .different_sections{
     display: flex;
@@ -30,7 +32,7 @@ h2{
     padding: 40px;
     flex-wrap: wrap;
 }
-.loisirs, .projet, .formation{
+.loisirs, .projets, .formations{
     background-color: lightblue;
     width: 240px;
     padding: 2px;  
@@ -106,11 +108,10 @@ h2{
 }
 .image-projet{
     display: block;
-    margin: auto auto;
+    margin: 0px 40px;
     width: 300px;
     height: 220px;
-    position: relative;
-    overflow: hidden;
+    position: relative; /* Nécessaire pour positionner le texte de survol reference de position pour la position absolute*/
 }
 .image-projet img {
     width: 100%;
@@ -129,9 +130,23 @@ h2{
     align-items: center;
     justify-content: center;
     opacity: 0; 
+    font-size:x-large;
 }
 
 
 .image-projet:hover .texte-survol {
     opacity: 0.8;
+}
+
+.formation ,.projet{
+    display: block;
+    background-color: #001f3f;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    width: 240px; 
+    margin: 5px auto;
 }
