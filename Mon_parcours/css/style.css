@@ -1,6 +1,6 @@
+/* style général pour toutes les pages */
 html{
     height: 100%;
-    font-family: Arial;
     background-color: #001f3f;
 }
 body {
@@ -18,7 +18,6 @@ h1{
 h2{
     margin: 10px 0px;
     text-align: center;
-    color: black;
     font-size: 34px;
     font-family:'Times New Roman';
     text-decoration: underline;
@@ -26,48 +25,36 @@ h2{
 
 }
 
-
+/* Style de class utiliser dans plusieurs pages */
 .different_sections{
     display: flex;
     justify-content: center;
     padding: 30px;
-    flex-wrap: wrap;
+    flex-wrap: wrap ;
 }
 .loisirs, .projets, .formations{
     background-color: lightblue;
-    width: 240px;
+    width: 300px;
     padding: 2px;  
     margin: auto auto;
+    margin-top: 70px;
+    margin-bottom: 20px;
     text-align: center;
+    border-radius: 8px;
+     line-height: 25px;
 }
 
-.button-style{
-    display: block;
-    cursor: pointer;
-    padding: 15px 32px;
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    margin: 10px auto;
-    background-color: white;
-    color: black;
-    border: 5px solid black;
-    border-radius: 8px;
-    font-family:'Times New Roman';
-    text-decoration: none;
+
+.sections_contact{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    flex-wrap: wrap;
 }
-.button-style:hover{
-    background-color: #001f3f;
-    color: white;
-    border: 5px solid white;
-    border-radius: 8px;
-    padding: 15px 32px;
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    margin: 10px auto;
-    font-family:'Times New Roman';
-    text-decoration: none;
+
+/* style pour la page d'accueil */
+.text-acceuil{
+    font-size:larger;
 }
 .button-reseaux{
     align-items: center;
@@ -99,20 +86,50 @@ h2{
     text-decoration: none;
 
 }
+.button-style{
+    display: block;
+    cursor: pointer;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px 10px;
+    background-color: white;
+    color: black;
+    border: 5px solid black;
+    border-radius: 8px;
+    font-family:'Times New Roman';
+    text-decoration: none;
+}
+.button-style:hover{
+    background-color: #001f3f;
+    color: white;
+    border: 5px solid white;
+    border-radius: 8px;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px auto;
+    font-family:'Times New Roman';
+    text-decoration: none;
+}
 
-.sections_contact{
+/* style pour la page de loisirs */
+.different_sections_loisirs{
     display: flex;
     justify-content: center;
-    padding: 20px;
-    flex-wrap: wrap;
+    padding: 30px;
+    flex-direction: column;
 }
 .image-loisir{
     display: block;
     margin: 0px 40px;
-    width: 300px;
-    height: 220px;
+    width: 330px;
+    height: 250px;
     position: relative; /* Nécessaire pour positionner le texte de survol reference de position pour la position absolute*/
 }
+
 .image-loisir img {
     width: 100%;
     height: 100%;
@@ -131,6 +148,7 @@ h2{
     justify-content: center;
     opacity: 0; 
     font-size:x-large;
+    text-align: center;
 }
 
 
@@ -138,6 +156,7 @@ h2{
     opacity: 0.8;
 }
 
+/* style pour la page de futurs projets , projet  et formation*/
 .formation ,.projet{
     display: block;
     background-color: #001f3f;
@@ -149,29 +168,32 @@ h2{
     font-weight: bold;
     width: 325px; 
     margin: 5px auto;
+    line-height: 25px;
 }
-.projet-section{
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
+#video_projet{
+    display: block;
+    margin: 20px auto;
+    width: 275px;
+}
+.projet-futur-section{
+    margin: auto auto;
     padding: 20px;
     text-align: center;
     font-size: 18px;
     background-color: white;
     border-radius: 10px;
     max-width: 800px;
-
     color: #001f3f;
 }
 
-.button-projet{ 
+.button-futur-projet{ 
     align-items: center;
     text-align: center;
     cursor: pointer;
     padding: 15px 15px;
-    font-size: 30px;
+    font-size: 35px;
     font-weight: bold;
-    margin: auto 50px; ;
+    margin: 25px 55px;
     background-color: white;
     color: black;
     border: 5px solid black;
@@ -179,15 +201,19 @@ h2{
     font-family:'Times New Roman';
     text-decoration: none;
     }
-.button-projet:hover{
+.button-futur-projet:hover{
     background-color: #001f3f;
     color: white;
     border: 5px solid white;
     border-radius: 8px;
     padding: 15px 15px;
     text-align: center;
-    font-size: 30px;
+    font-size: 35px;
     font-weight: bold;
     font-family:'Times New Roman';
     text-decoration: none;
     }
+#prochain-projet{
+    font-size: 20px;
+    line-height: 25px;
+}
