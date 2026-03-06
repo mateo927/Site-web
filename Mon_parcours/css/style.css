@@ -18,7 +18,7 @@ h1{
 h2{
     margin: 10px 0px;
     text-align: center;
-    font-size: 34px;
+    font-size: 40px;
     font-family:'Times New Roman';
     text-decoration: underline;
     color: lightblue;
@@ -110,7 +110,7 @@ h2{
     text-align: center;
     font-size: 30px;
     font-weight: bold;
-    margin: 10px auto;
+    margin: 10px 10px;
     font-family:'Times New Roman';
     text-decoration: none;
 }
@@ -127,7 +127,7 @@ h2{
     margin: 0px 40px;
     width: 330px;
     height: 250px;
-    position: relative; /* Nécessaire pour positionner le texte de survol reference de position pour la position absolute*/
+    position: relative; 
 }
 
 .image-loisir img {
@@ -166,7 +166,7 @@ h2{
     text-decoration: none;
     font-size: 20px;
     font-weight: bold;
-    width: 325px; 
+    width:355px; 
     margin: 5px auto;
     line-height: 25px;
 }
