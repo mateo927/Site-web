@@ -164,7 +164,10 @@ h2{
 }
 
 /* style pour la page de futurs projets ,projet et formation*/
-
+.tableau_notes{
+    margin: auto auto;
+    width: 335px;
+}
 .formation ,.projet{
     display: block;
     background-color: #001f3f;
