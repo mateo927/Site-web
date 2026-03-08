@@ -6,7 +6,7 @@ function projets(Id){
         text="Je compte poursuivre mes études à l'ENSIBS en 2ème année de prépa intégrée, avant d'intégrer le cycle ingénieur en spécialité Génie Énergétique et Électrique. Ce choix s'inscrit dans un projet professionnel réfléchi, orienté vers les enjeux de la transition énergétique et de l'électrification des systèmes, des secteurs en forte croissance qui correspondent à mes ambitions et compétences."
     }
 
-    if (Id=="bois"){
+    if (Id=="Bricolage"){
         text="Je compte continuer le plus possible à faire des projets en bois, pour le plaisir et pour apprendre de nouvelles techniques. Pour l'instant, je vais commencer à faire du mobilier pour travailler sur de plus grandes pièces. Mais si j'ai le temps, je voudrais aussi me pencher sur la métallurgie pour perfectionner mes projets."
     }
 

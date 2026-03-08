@@ -1,3 +1,4 @@
+// Change l'image affichée selon le bouton partenaire cliqué
 function partenaires(Id){
     var image;
 
@@ -12,5 +13,7 @@ function partenaires(Id){
     if (Id=="Orange"){
         image="Orange-cyberdefense.png"
     }
+
+    // Met à jour le src de l'image principale avec le logo choisi
     document.getElementById("monImage").src=image
 }

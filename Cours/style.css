@@ -19,7 +19,7 @@ h2{
 }
 .container_informations{
     width: 80%;
-    margin: 2px auto;
+    margin: 2px auto; /* auto = centrage horizontal */
     padding: 30px;
 }
 #Iframe_ENSIBS{
@@ -35,7 +35,7 @@ h2{
     text-decoration: underline;
 }
 table {
-    border-collapse: collapse;
+    border-collapse: collapse; /* supprime les doubles bordures entre cellules */
 }
 #nous_contacter_JS{
     font-size: 26px;
@@ -49,7 +49,7 @@ table {
 }
 #button-Retrouvez-nous{
     display: block;
-    margin: 20px auto;
+    margin: 20px auto; /* centrage horizontal */
     border: black;
     cursor: pointer;
     background-color: lightblue;
@@ -93,7 +93,7 @@ th, td {
     text-align: center;
     }
 td:first-child {
-    text-align: left;
+    text-align: left; /* libellé de la matière aligné à gauche */
     }
 #myfooterJS{
     text-align: center;
@@ -127,7 +127,7 @@ td:first-child {
     font-size: 22px;
     font-weight: bold;
     font-family: "Times New Roman";
-    border-radius: 60px;
+    border-radius: 60px; /* forme pilule */
 }
 #button-myfooter:hover{
     background-color: green;
@@ -149,7 +149,7 @@ td:first-child {
     font-size: 18px;
     font-weight: bold;
     margin: 10px 60px;
-    box-shadow: 0 10px 15px green;
+    box-shadow: 0 10px 15px green; /* ombre verte sous le bouton */
     font-family:'Times New Roman';
 }
 .containerMedia{
@@ -159,16 +159,16 @@ td:first-child {
     text-align: center;
 }
 .video-container{
-    display: flex;/*diviser la section*/
+    display: flex;
     align-items: center;
     margin-top: 20px;
 }
 .video{
-    flex: 1;/*ajouter une sous-section*/
+    flex: 1; /* chaque vidéo prend la même largeur */
     margin: 10px;
 }
 #button-media{
-    display: inline-block; /*centrer*/
+    display: inline-block;
     background-color: lightblue;
     color: black;
     border: 5px solid black;
@@ -182,7 +182,7 @@ td:first-child {
     font-family:'Times New Roman';
 }
 .top{
-    background-color: #001f3f;
+    background-color: #001f3f; /* bleu marine ENSIBS */
     color: white;
     text-align: center;
     padding: 15px 0;
@@ -213,7 +213,7 @@ td:first-child {
 .sectionsleft{
     width: 20%;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* boutons empilés verticalement */
     padding: 20px;
 }
 .sectionleft{
@@ -229,7 +229,7 @@ td:first-child {
     cursor: pointer;
     padding: 15px 32px;
     text-align: center;
-    text-decoration: none;
+    text-decoration: none; /* supprime le soulignement du lien */
     font-size: 18px;
     font-weight: bold;
     margin: 4px 2px;
@@ -264,7 +264,7 @@ body.UBS-page{
     justify-content: center;
     gap: 40px;
     padding: 40px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* retour à la ligne si pas assez de place */
 }
 .photo-container{
     width: 300px;
@@ -280,11 +280,11 @@ body.UBS-page{
     width: 93.3%;
     text-align: center;
     padding: 10px;
-    opacity: 0;
+    opacity: 0; /* caché par défaut, visible au survol */
     font-size: 16px;
 }
 .photo-container:hover .titre{
-    opacity: 1;
+    opacity: 1; /* apparaît au survol */
 }
 .description-section{
     margin-top: 30px;

@@ -1,12 +1,15 @@
 /* style général pour toutes les pages */
+
 html{
     height: 100%;
     background-color: #001f3f;
 }
+
 body {
     height: 100%;
     font-family: Arial;
 }
+
 h1{
     margin: auto auto;
     text-align: center;
@@ -15,6 +18,7 @@ h1{
     background-color: lightblue;
     font-family:'Times New Roman';
 }
+
 h2{
     margin: 10px 0px;
     text-align: center;
@@ -32,6 +36,7 @@ h2{
     padding: 30px;
     flex-wrap: wrap ;
 }
+
 .loisirs, .projets, .formations{
     background-color: lightblue;
     width: 300px;
@@ -53,6 +58,7 @@ h2{
 }
 
 /* style pour la page d'accueil */
+
 .text-acceuil{
     font-size:larger;
 }
@@ -116,6 +122,7 @@ h2{
 }
 
 /* style pour la page de loisirs */
+
 .different_sections_loisirs{
     display: flex;
     justify-content: center;
@@ -156,7 +163,8 @@ h2{
     opacity: 0.8;
 }
 
-/* style pour la page de futurs projets , projet  et formation*/
+/* style pour la page de futurs projets ,projet et formation*/
+
 .formation ,.projet{
     display: block;
     background-color: #001f3f;
